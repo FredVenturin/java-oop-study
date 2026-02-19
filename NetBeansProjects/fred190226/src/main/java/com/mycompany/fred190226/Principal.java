@@ -12,11 +12,15 @@ public class Principal {
 
     public static void main(String[] args) {
 
-        Conta conta = new Conta(1000.0); 
+        Conta c1 = new Conta(1000.0); 
+        Conta c2 = new Conta(0.0); 
 
-        conta.creditar(500.0);  
-        conta.debitar(200.0);   
+        c1.creditar(500.0);  
+        c1.debitar(200.0);
+        c1.transferir(c2, 1000);
+        
+        
 
-        System.out.println("Saldo final: " + conta.getSaldo());
+        System.out.println("Saldo final: " + c1.getSaldo());
     }
 }

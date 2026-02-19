@@ -15,7 +15,13 @@ public class Conta {
     public Conta(double saldoInicial) {
         this.saldo = saldoInicial;
     }
-
+    
+    public void transferir(Conta destino, double valor){
+        debitar(valor);
+        destino.creditar(valor);
+    }
+    
+    
     public void creditar(double valor) {
         saldo += valor;
     }
