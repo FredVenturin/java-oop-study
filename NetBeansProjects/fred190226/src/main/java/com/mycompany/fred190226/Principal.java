@@ -21,6 +21,7 @@ public class Principal {
         
         
 
-        System.out.println("Saldo final: " + c1.getSaldo());
+        System.out.println("Saldo final c1: " + c1.getSaldo());
+        System.out.println("Saldo final c2: " + c2.getSaldo());
     }
 }
