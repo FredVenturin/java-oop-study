@@ -12,8 +12,8 @@ public class Principal {
 
     public static void main(String[] args) {
 
-        Conta c1 = new Conta(1000.0); 
-        Conta c2 = new Conta(0.0); 
+        Conta c1 = new Conta(123,6630,1000.0); 
+        Conta c2 = new Conta(); 
 
         c1.creditar(500.0);  
         c1.debitar(200.0);
