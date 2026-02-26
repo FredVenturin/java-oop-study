@@ -1,0 +1,27 @@
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ */
+
+package com.mycompany.fred190226;
+
+/**
+ *
+ * @author alunolab13
+ */
+public class Principal {
+
+    public static void main(String[] args) {
+
+        Conta c1 = new Conta(123,6630,1000.0, 5000); 
+        Conta c2 = new Conta(); 
+
+        c1.creditar(500.0);  
+        c1.debitar(80.0);
+        c1.transferir(c2, 1000);
+        
+        
+
+        System.out.println("Saldo final c1: " + c1.getSaldo());
+        System.out.println("Saldo final c2: " + c2.getSaldo());
+    }
+}
