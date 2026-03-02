@@ -3,6 +3,7 @@
  */
 
 package com.mycompany.fred190226;
+import java.util.Scanner;
 
 /**
  *
@@ -11,8 +12,21 @@ package com.mycompany.fred190226;
 public class Principal {
 
     public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Digite a agencia da conta 1:");
+        int agencia = sc.nextInt();
+        
+        System.out.println("Digite o número da conta 1:");
+        int numero = sc.nextInt();
+        
+        System.out.println("Digite o saldo da conta 1:");
+        double saldo = sc.nextDouble();
+        
+        System.out.println("Digite o limite da conta 1:");
+        double limite = sc.nextDouble();
+        
 
-        Conta c1 = new Conta(123,6630,1000.0, 5000); 
+        Conta c1 = new Conta(agencia,numero,saldo, limite); 
         Conta c2 = new Conta(); 
 
         c1.creditar(500.0);  
