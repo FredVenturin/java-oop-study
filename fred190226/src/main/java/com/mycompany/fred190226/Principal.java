@@ -4,6 +4,7 @@
 
 package com.mycompany.fred190226;
 import java.util.Scanner;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -12,30 +13,42 @@ import java.util.Scanner;
 public class Principal {
 
     public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
-        System.out.println("Digite a agencia da conta 1:");
-        int agencia = sc.nextInt();
         
-        System.out.println("Digite o número da conta 1:");
-        int numero = sc.nextInt();
+        int [] agencia = new int[2];
+        int [] numero = new int[2];
+        double [] saldo = new double[2];
+        double [] limite = new double[2];
+        Conta [] contas = new Conta[2];
         
-        System.out.println("Digite o saldo da conta 1:");
-        double saldo = sc.nextDouble();
+        for (int i = 0; i < numero.length; i++){
+            agencia[i] = Integer.parseInt(JOptionPane.showInputDialog("Digite a agencia da conta " + (i+1)+ ":", agencia[i]));
         
-        System.out.println("Digite o limite da conta 1:");
-        double limite = sc.nextDouble();
+            numero[i] = Integer.parseInt(JOptionPane.showInputDialog("Digite o numero da conta "+ (i+1)+ ":", agencia[i]));
+
+            saldo[i] = Double.parseDouble(JOptionPane.showInputDialog("Digite o saldo da conta "+ (i+1)+ ":", agencia[i]));
+
+            limite[i] = Double.parseDouble(JOptionPane.showInputDialog("Digite o limite da conta "+ (i+1)+ ":", agencia[i]));
+            
+            contas[i] = new Conta(agencia[i],numero[i],saldo[i], limite[i]);
+            
+        }
+        
+        
+        
+        double valorCred = Double.parseDouble(JOptionPane.showInputDialog("Digite valor a ser creditado em c1: "));
+        double valorDeb = Double.parseDouble(JOptionPane.showInputDialog("Digite valor a ser debitado em c1: "));
+        double valorTransf = Double.parseDouble(JOptionPane.showInputDialog("Digite valor a ser transferido: "));
         
 
-        Conta c1 = new Conta(agencia,numero,saldo, limite); 
-        Conta c2 = new Conta(); 
-
-        c1.creditar(500.0);  
-        c1.debitar(80.0);
-        c1.transferir(c2, 1000);
+        contas[0].creditar(valorCred);
+        contas[0].debitar(valorDeb);
+        contas[0].transferir(contas[1], valorTransf);
+        
+        JOptionPane.showMessageDialog(null, contas[0].getSaldoDisponivel());
         
         
 
-        System.out.println("Saldo final c1: " + c1.getSaldo());
-        System.out.println("Saldo final c2: " + c2.getSaldo());
+        System.out.println("Saldo final c1: " + contas[0].getSaldo());
+        System.out.println("Saldo final c2: " + contas[1].getSaldo());
     }
 }
